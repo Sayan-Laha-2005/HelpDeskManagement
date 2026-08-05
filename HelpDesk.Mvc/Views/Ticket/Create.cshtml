@@ -1,0 +1,35 @@
+@model Ticket
+@{
+    ViewData["Title"] = "Create Ticket";
+}
+
+<h2>Create Ticket</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All"></div>
+
+    <label>Title</label>
+    <input asp-for="Title" />
+
+    <label>Description</label>
+    <textarea asp-for="Description"></textarea>
+
+    <label>Priority</label>
+    <select asp-for="Priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+    </select>
+
+    <label>Status</label>
+    <select asp-for="Status">
+        <option value="Open">Open</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Closed">Closed</option>
+    </select>
+
+    <label>Raised By</label>
+    <input asp-for="RaisedBy" />
+
+    <p><button type="submit">Create</button> <a href="@Url.Action("Index")">Cancel</a></p>
+</form>
