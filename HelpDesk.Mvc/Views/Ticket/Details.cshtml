@@ -1,0 +1,15 @@
+@model Ticket
+@{
+    ViewData["Title"] = "Ticket Details";
+}
+
+<h2>Ticket #@Model.Id</h2>
+<table>
+    <tr><th>Title</th><td>@Model.Title</td></tr>
+    <tr><th>Description</th><td>@Model.Description</td></tr>
+    <tr><th>Priority</th><td>@Model.Priority</td></tr>
+    <tr><th>Status</th><td>@Model.Status</td></tr>
+    <tr><th>Raised By</th><td>@Model.RaisedBy</td></tr>
+    <tr><th>Created Date</th><td>@Model.CreatedDate.ToString("g")</td></tr>
+</table>
+<p><a href="@Url.Action("Index")">Back to list</a></p>
