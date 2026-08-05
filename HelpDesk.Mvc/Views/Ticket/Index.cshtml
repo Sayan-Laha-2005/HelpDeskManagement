@@ -1,0 +1,33 @@
+@model List<Ticket>
+@{
+    ViewData["Title"] = "Tickets";
+}
+
+<h2>Tickets</h2>
+<p><a class="button" href="@Url.Action("Create")">+ New Ticket</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th><th>Title</th><th>Priority</th><th>Status</th><th>Raised By</th><th>Created</th><th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var ticket in Model)
+    {
+        <tr>
+            <td>@ticket.Id</td>
+            <td>@ticket.Title</td>
+            <td>@ticket.Priority</td>
+            <td>@ticket.Status</td>
+            <td>@ticket.RaisedBy</td>
+            <td>@ticket.CreatedDate.ToString("g")</td>
+            <td>
+                <a href="@Url.Action("Details", new { id = ticket.Id })">View</a> |
+                <a href="@Url.Action("Edit", new { id = ticket.Id })">Edit</a> |
+                <a href="@Url.Action("Delete", new { id = ticket.Id })">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
